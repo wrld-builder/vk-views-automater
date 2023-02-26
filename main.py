@@ -4,6 +4,7 @@ from selenium.webdriver.firefox.service import Service as FirefoxService
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from selenium.webdriver.firefox.options import Options
 from webdriver_manager.firefox import GeckoDriverManager
+from time import sleep
 
 options = Options()
 options.profile = '/home/logbaby/.mozilla/firefox/9qna7omd.default-release'
@@ -24,6 +25,9 @@ def create_task():
     input_digits_block.find_element(By.CLASS_NAME, 'input').send_keys(VIEWS_COUNT)
 
     DRIVER.find_element(By.CLASS_NAME, 'btn_icon').click()
+
+    sleep(5)
+    DRIVER.close()
 
 if __name__ == '__main__':
     create_task()
